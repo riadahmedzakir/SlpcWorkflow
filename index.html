@@ -13,10 +13,11 @@
 
     <script src="./app/app-config.js"></script>
     <script src="./app/db-config.js"></script>
+    <script src="./app/workflow-config.js"></script>
     <script src="./app/main-config.js"></script>
 </head>
 
-<body style="padding:25px;">
+<body style="padding:25px 25px 50px 25px;">
     <div ng-controller="MainController as vm">
         <h1> New Activity Details </h1>
 
@@ -27,7 +28,8 @@
 
         <md-input-container style="width:50%; margin-bottom: 0px;">
             <label>Activity Name:</label>
-            <input minlength="0" maxlength="100" ng-model="vm.activityId" ng-required="true" ng-disabled="true">
+            <input minlength="0" maxlength="100" ng-value="vm.activityId" ng-model="vm.activityName" ng-required="true"
+                ng-disabled="true">
         </md-input-container>
 
         <md-input-container style="width:50%; margin-bottom: 0px;">
@@ -35,9 +37,17 @@
             <input minlength="0" maxlength="100" ng-model="vm.tenantId" ng-required="true" ng-disabled="true">
         </md-input-container>
 
+        <md-input-container style="width:50%;">
+            <label>Workflow Name:</label>
+            <md-select ng-change="vm.getEntityName()" ng-model="vm.workflowName" ng-required="true">
+                <md-option ng-value="workflow" ng-repeat="workflow in workflowList | orderBy : 'WorkFlowName'">{{workflow.WorkFlowName}}</md-option>
+            </md-select>
+        </md-input-container>
+
         <md-input-container style="width:50%; margin-bottom: 0px;">
             <label>Workflow Id:</label>
-            <input minlength="0" maxlength="100" ng-model="vm.workflowId" ng-required="true">
+            <input minlength="0" maxlength="100" ng-value="vm.workflowName._id" ng-model="vm.workflowId" ng-required="true"
+                ng-disabled="true">
         </md-input-container>
 
         <md-input-container style="width:50%;">
@@ -51,6 +61,40 @@
         <md-input-container style="width:50%; margin-bottom: 0px;">
             <label>Activity View Name: (App Name)</label>
             <input minlength="0" maxlength="100" ng-model="vm.activityViewName" ng-required="true">
+        </md-input-container>
+
+        <md-input-container style="width:50%; margin-bottom: 0px;">
+            <label>Entity Name :</label>
+            <input minlength="0" maxlength="100" ng-model="vm.entityName" ng-required="true" ng-disabled="true">
+        </md-input-container>
+
+        <md-input-container style="width:50%; margin-bottom: 0px;">
+            <label>Next Activity Id:</label>
+            <input minlength="0" maxlength="100" ng-model="vm.nextActivityId" ng-required="true">
+        </md-input-container>
+
+        <md-input-container style="width:50%;">
+            <label>Is Section :</label>
+            <md-select ng-model="vm.activityType" ng-required="true">
+                <md-option value="true">True</md-option>
+                <md-option ng-selected="true" value="false">False</md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container style="width:50%; margin-bottom: 0px;">
+            <label>Section Name :</label>
+            <input minlength="0" maxlength="100" ng-model="vm.sectionName" ng-required="true">
+        </md-input-container>
+
+
+        <md-input-container style="width:50%; margin-bottom: 0px;">
+            <label>Section Order :</label>
+            <input minlength="0" maxlength="100" ng-model="vm.nextActivityId" ng-required="true">
+        </md-input-container>
+
+        <md-input-container style="width:50%; margin-bottom: 0px;">
+            <label>Navigation Path Key :</label>
+            <input minlength="0" maxlength="100" ng-model="vm.navigationPathKey" ng-required="true">
         </md-input-container>
     </div>
 </body>

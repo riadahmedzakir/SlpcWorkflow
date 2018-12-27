@@ -3,7 +3,7 @@
 
     angular.module('app').controller('MainController', constructor);
 
-    function constructor($scope, $locale, mongoService, $mdDialog) {
+    function constructor($scope, $locale, $mdDialog, mongoService, workflowService) {
 
         var vm = this;
         vm.tenantId = "600DE79B-DCCD-4965-BC93-0A6A8E6AE388";
@@ -39,17 +39,22 @@
             var query = {};
             mongoService.get(entity, query).then(function (workflowList) {
                 $scope.workflowList = workflowList;
-                console.log(workflowList);
             });
+        }
+
+        vm.getEntityName = function () {
+            var workflowId = vm.workflowName._id;
+            vm.entityName = workflowService.getEntityName(workflowId);
+            console.log(vm.entityName);
         }
 
 
         function Init() {
-            workFlowList();            
+            workFlowList();
         }
 
         Init();
     }
 
-    constructor.$inject = ["$scope", "$locale", "mongoService", "$mdDialog"];
+    constructor.$inject = ["$scope", "$locale", "$mdDialog", "mongoService", "workflowService"];
 })();
