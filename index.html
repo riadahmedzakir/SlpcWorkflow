@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Activities</title>
+    <link rel="stylesheet" href="./lib/angular-material.min.css">
+    <script src="./lib/angular.js"></script>
+    <script src="./lib/angular-animate.min.js"></script>
+    <script src="./lib/angular-aria.min.js"></script>
+    <script src="./lib/angular-messages.min.js"></script>
+    <script src="./lib/angular-material.min.js"></script>
+
+    <script src="./app/app-config.js"></script>
+    <script src="./app/db-config.js"></script>
+    <script src="./app/main-config.js"></script>
+</head>
+
+<body style="padding:25px;">
+    <div ng-controller="MainController as vm">
+        <h1> New Activity Details </h1>
+
+        <md-input-container style="width:50%; margin-bottom: 0px;">
+            <label>Activity Id:</label>
+            <input minlength="0" maxlength="100" ng-model="vm.activityId" ng-required="true">
+        </md-input-container>
+
+        <md-input-container style="width:50%; margin-bottom: 0px;">
+            <label>Activity Name:</label>
+            <input minlength="0" maxlength="100" ng-model="vm.activityId" ng-required="true" ng-disabled="true">
+        </md-input-container>
+
+        <md-input-container style="width:50%; margin-bottom: 0px;">
+            <label>Tenant Id:</label>
+            <input minlength="0" maxlength="100" ng-model="vm.tenantId" ng-required="true" ng-disabled="true">
+        </md-input-container>
+
+        <md-input-container style="width:50%; margin-bottom: 0px;">
+            <label>Workflow Id:</label>
+            <input minlength="0" maxlength="100" ng-model="vm.workflowId" ng-required="true">
+        </md-input-container>
+
+        <md-input-container style="width:50%;">
+            <label>Activity Type: </label>
+            <md-select ng-model="vm.activityType" ng-required="true">
+                <md-option value="Start">Start</md-option>
+                <md-option ng-selected="true" value="None">None</md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container style="width:50%; margin-bottom: 0px;">
+            <label>Activity View Name: (App Name)</label>
+            <input minlength="0" maxlength="100" ng-model="vm.activityViewName" ng-required="true">
+        </md-input-container>
+    </div>
+</body>
+
+</html>

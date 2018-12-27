@@ -1,0 +1,26 @@
+{
+  "name": "workflow",
+  "version": "1.0.0",
+  "description": "An application to config SLPC workflow",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "Riad Ahmed Zakir",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "~4.0.0"
+  },
+  "dependencies": {
+    "mongodb": "^2.2.27",
+    "nodemon": "^1.18.9"
+  }
+}
