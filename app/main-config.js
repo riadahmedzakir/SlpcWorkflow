@@ -45,7 +45,15 @@
         vm.getEntityName = function () {
             var workflowId = vm.workflowName._id;
             vm.entityName = workflowService.getEntityName(workflowId);
-            console.log(vm.entityName);
+            // console.log(vm.entityName);
+        }
+
+        vm.addActivity = function () {
+            console.log("hi");
+            // $scope.activityInfos.$submitted = true;
+            if (!$scope.activityInfos.$invalid) {
+                console.log("hi");
+            }
         }
 
 
